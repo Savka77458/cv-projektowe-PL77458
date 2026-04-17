@@ -69,18 +69,50 @@
         </section>
 
         <section>
-            <h2>Projekty</h2>
-            <ul>
-                <li>Prosta aplikacja bankowa (C#)</li>
-                <li>Kalkulator (C#)</li>
-            </ul>
-        </section>
-    </main>
+            <h2>Projekty</h2>
+            <ul>
+                <li>Prosta aplikacja bankowa (C#)</li>
+                <li>Kalkulator (C#)</li>
+            </ul>
+        </section>
 
-    <footer>
-        <p>&copy; 2026 Vladyslav Savka (PL77458). Strona stworzona na zaliczenie.</p>
-    </footer>
-    
-    <script src="script.js"></script>
+                <section id="formularz-kontakt">
+            <h2>Napisz do mnie</h2>
+            <form id="contactForm" novalidate>
+                <div class="form-group">
+                    <label for="imie">Imię:</label>
+                    <input type="text" id="imie" name="imie" placeholder="Wpisz swoje imię">
+                    <div class="error-message" id="imieError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nazwisko">Nazwisko:</label>
+                    <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz swoje nazwisko">
+                    <div class="error-message" id="nazwiskoError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="np. jan.kowalski@domena.pl">
+                    <div class="error-message" id="emailError"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="wiadomosc">Wiadomość:</label>
+                    <textarea id="wiadomosc" name="wiadomosc" rows="4" placeholder="Wpisz swoją wiadomość"></textarea>
+                    <div class="error-message" id="wiadomoscError"></div>
+                </div>
+
+                <button type="submit" id="submitBtn">Wyślij</button>
+                <div id="successMessage" style="display: none; color: green; font-weight: bold; margin-top: 15px;">
+                    Wiadomość została pomyślnie wysłana!
+                </div>
+            </form>
+        </section>
+    </main>     <footer>
+        <p>&copy; 2026 Vladyslav Savka (PL77458). Strona stworzona na zaliczenie.</p>
+    </footer>
+    
+    <script src="script.js"></script>
 </body>
 </html>
