@@ -54,6 +54,67 @@ a {
     text-decoration: underline;
 }
 
+#formularz-kontakt {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #fbecec;
+    border: 3px double #8b0000;
+    border-radius: 0;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #8b0000;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #8b0000;
+    border-radius: 0;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #fff;
+}
+
+.error-message {
+    color: #ff0000;
+    font-size: 13px;
+    margin-top: 5px;
+    display: none;
+    font-style: italic;
+}
+
+.input-error {
+    border: 2px solid #ff0000 !important;
+    background-color: #fffafa;
+}
+
+#submitBtn {
+    padding: 12px 25px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #8b0000;
+    color: white;
+    border: 2px solid #5a0000;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+#submitBtn:hover {
+    background-color: #b22222;
+    border-color: #8b0000;
+}
 a:hover {
     color: #ff0000;
     text-decoration: none;
