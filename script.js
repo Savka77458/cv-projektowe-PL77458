@@ -87,3 +87,29 @@ if (contactForm) {
         }
     });
 }
+
+const umiejetnosciLista = document.getElementById('umiejetnosci-lista');
+const projektyLista = document.getElementById('projekty-lista');
+
+if (umiejetnosciLista && projektyLista) {
+    fetch('dane.json')
+        .then(function(response) {
+            return response.json();
+        })
+        .then(function(data) {
+            data.umiejetnosci.forEach(function(item) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                umiejetnosciLista.appendChild(li);
+            });
+
+            data.projekty.forEach(function(item) {
+                const li = document.createElement('li');
+                li.textContent = item;
+                projektyLista.appendChild(li);
+            });
+        })
+        .catch(function(error) {
+            console.log('Błąd podczas pobierania danych:', error);
+        });
+}
