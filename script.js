@@ -113,3 +113,69 @@ if (umiejetnosciLista && projektyLista) {
             console.log('Błąd podczas pobierania danych:', error);
         });
 }
+
+const inputNotatki = document.getElementById('nowa-notatka');
+const btnDodajNotatke = document.getElementById('dodaj-notatke-btn');
+const listaNotatek = document.getElementById('notatki-lista');
+
+function pobierzNotatki() {
+    const zapisaneDane = localStorage.getItem('moje_notatki');
+    return zapisaneDane ? JSON.parse(zapisaneDane) : [];
+}
+
+function wyswietlNotatki() {
+    if (!listaNotatek) return;
+    
+    listaNotatek.innerHTML = '';
+    const notatki = pobierzNotatki();
+
+    notatki.forEach(function(notatka, index) {
+        const li = document.createElement('li');
+        li.style.marginBottom = '10px';
+        
+        const tekstSpan = document.createElement('span');
+        tekstSpan.textContent = notatka + " ";
+        
+        const btnUsun = document.createElement('button');
+        btnUsun.textContent = 'Usuń';
+        btnUsun.style.marginLeft = '10px';
+        btnUsun.style.cursor = 'pointer';
+        
+        btnUsun.addEventListener('click', function() {
+            usunNotatke(index);
+        });
+
+        li.appendChild(tekstSpan);
+        li.appendChild(btnUsun);
+        listaNotatek.appendChild(li);
+    });
+}
+
+function dodajNotatke() {
+    const tekst = inputNotatki.value.trim();
+    
+    if (tekst !== '') {
+        const notatki = pobierzNotatki();
+        notatki.push(tekst);
+        
+        localStorage.setItem('moje_notatki', JSON.stringify(notatki));
+        
+        inputNotatki.value = '';
+        wyswietlNotatki();
+    } else {
+        alert("Notatka nie może być pusta!");
+    }
+}
+
+function usunNotatke(index) {
+    const notatki = pobierzNotatki();
+    notatki.splice(index, 1);
+    localStorage.setItem('moje_notatki', JSON.stringify(notatki));
+    wyswietlNotatki();
+}
+
+if (btnDodajNotatke) {
+    btnDodajNotatke.addEventListener('click', dodajNotatke);
+}
+
+wyswietlNotatki();
