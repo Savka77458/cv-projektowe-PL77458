@@ -82,8 +82,7 @@ if (contactForm) {
         }
 
         if (isValid) {
-            document.getElementById('successMessage').style.display = 'block';
-            contactForm.reset();
+            
         }
     });
 }
