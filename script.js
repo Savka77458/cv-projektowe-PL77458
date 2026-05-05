@@ -82,7 +82,19 @@ if (contactForm) {
         }
 
         if (isValid) {
+            const formData = {
+                imie: imie.value.trim(),
+                nazwisko: nazwisko.value.trim(),
+                email: email.value.trim(),
+                wiadomosc: wiadomosc.value.trim()
+            };
+
+            const successMessage = document.getElementById('successMessage');
+            successMessage.style.display = 'block';
+            successMessage.style.color = 'blue';
+            successMessage.textContent = 'Przetwarzanie danych...';
             
+            console.log("Dane gotowe do wysyłki:", formData);
         }
     });
 }
