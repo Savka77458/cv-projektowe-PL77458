@@ -92,9 +92,30 @@ if (contactForm) {
             const successMessage = document.getElementById('successMessage');
             successMessage.style.display = 'block';
             successMessage.style.color = 'blue';
-            successMessage.textContent = 'Przetwarzanie danych...';
-            
-            console.log("Dane gotowe do wysyłki:", formData);
+            successMessage.textContent = 'Wysyłanie wiadomości...';
+
+            fetch('https://69fa09dfc509a40d3aa3c879.mockapi.io/messages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(function(response) {
+                if (response.ok) {
+                    successMessage.style.color = 'green';
+                    successMessage.textContent = 'Wiadomość została pomyślnie wysłana!';
+                    contactForm.reset();
+                } else {
+                    successMessage.style.color = 'red';
+                    successMessage.textContent = 'Błąd serwera. Spróbuj ponownie.';
+                }
+            })
+            .catch(function(error) {
+                console.error('Błąd:', error);
+                successMessage.style.color = 'red';
+                successMessage.textContent = 'Wystąpił błąd sieci.';
+            });
         }
     });
 }
